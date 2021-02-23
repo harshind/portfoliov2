@@ -55,7 +55,10 @@
                 </div>
                 <div class="column right">
                     <div class="text">I'm Harsh and I'm a <span class="typing-2"></span></div>
-                    <p>odio officiis error doloremque excepturi quis consectetur neque ipsa perferendis quidem pariatur exercitationem repellendus perspiciatis eos est nesciunt? Omnis deserunt id accusantium beatae necessitatibus molestiae dolores nobis? Nisi assumenda animi aut eius ipsum dignissimos rerum necessitatibus non eligendi? Eaque ad consectetur totam quas sequi possimus molestias corrupti, debitis ea saepe doloremque! Voluptatum magni, voluptate dolorem quod vero beatae, consequuntur temporibus ratione, assumenda voluptatem voluptatibus. Quibusdam eligendi culpa mollitia non libero velit obcaecati quo vero facere accusantium adipisci sit tenetur veniam laboriosam ratione consequatur doloremque iure, ad aspernatur aut dolor rerum rem? Quod aperiam nobis numquam quam temporibus? Sint voluptates necessitatibus dolorum. Quod vero odio quos deserunt.</p>
+                    <p>
+                        I'm a final year B-Tech student at Saveetha School Of Engineering in Chennai, TN. I've a serious passion for creating Websites that provide buissness solutions.
+                        
+                    </p>
                     <a href="asset/RESUMEV1.pdf" download ="HARSH" >Download CV</a>
                 </div>
             </div>
@@ -70,21 +73,21 @@
                     <div class="box">
                         <i class="fas fa-paint-brush"></i>
                         <div class="text">Web Design</div>
-                        <p>With over approx 10 web technology skills under my belt, I'm confident I can design a custom website that drives sales for your unique business.</p>
+                        <p>Strong preference for easy to use, intuitive UX/UI.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="box">
                         <i class="fas fa-chart-line"></i>
-                        <div class="text">Advertisment</div>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi tempore quia eaque perferendis fuga. Voluptatum.</p>
+                        <div class="text">Responsive</div>
+                        <p>My layouts will work on any device, big or small.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="box">
                         <i class="fas fa-code"></i>
-                        <div class="text">Web Apps</div>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi tempore quia eaque perferendis fuga. Voluptatum.</p>
+                        <div class="text">Dynamic</div>
+                        <p>Websites don't have to be static, I love making pages come to life.</p>
                     </div>
                 </div>
             </div>
@@ -248,17 +251,17 @@
                     <form action="#">
                         <div class="fields">
                                 <div class="field name">
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" id="name"  placeholder="Name">
                                 </div>
                                 <div class="field email">
-                                    <input type="email" placeholder="Email">
+                                    <input type="email" id="from-email" placeholder="Email">
                                 </div>
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Subject">
+                            <input type="text" id="subject" placeholder="Subject">
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Describe project"></textarea>
+                            <textarea cols="30" rows="10" id="text" placeholder="Describe project"></textarea>
                         </div>
                         <div class="button">
                             <button type="submit" >Send Message</button>
@@ -274,6 +277,31 @@
     </footer>
 
     <script src="script.js"></script>
+     <!-- Here is a script where we will be collecting data from the form  -->
+    <script>
+        $('form').on('submit', (e) => {
+            // e.preventDefault();
+
+            const name = $('#name').val().trim();
+            const email = $('#from-email').val().trim();
+            const subject = $('#subject').val().trim();
+            const text = $('#text').val().trim();
+
+            const data = {
+                name,
+                email,
+                subject,
+                text
+            };
+
+            $.post('https://d0rl4.sse.codesandbox.io/email', data, function() {
+                console.log('Server recieved our data');
+
+
+            });
+        });
+        // document.getElementById('#form-data').reset();
+    </script>
 
 
 </body>
